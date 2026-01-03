@@ -37,6 +37,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.firebase.R
 import com.example.firebase.modeldata.Siswa
+import com.example.firebase.view.route.DestinasiHome
+import com.example.firebase.viewmodel.HomeViewModel
+import com.example.firebase.viewmodel.PenyediaViewModel
+import com.example.firebase.viewmodel.StatusUiSiswa
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -97,8 +101,8 @@ fun HomeBody(
         when (statusUiSiswa) {
             is StatusUiSiswa.Loading -> LoadingScreen()
             is StatusUiSiswa.Success -> DaftarSiswa(
-                itemSiswa = statusUiSiswa.siswa ,
-                onSiswaClick = {onSiswaClick(it.id.toInt)})
+                dataSiswa = statusUiSiswa.listSiswa,
+                onSiswaClick = { siswa -> onSiswaClick(siswa.id.toInt())})
 
             is StatusUiSiswa.Error -> ErrorScreen(
                 retryAction,
