@@ -70,6 +70,7 @@ fun EntrySiswaScreen(
         )
     }
 }
+
 @Composable
 fun EntrySiswaBody(
     uiStateSiswa: UIStateSiswa,
@@ -81,7 +82,9 @@ fun EntrySiswaBody(
         verticalArrangement = Arrangement.spacedBy(
             dimensionResource(id = R.dimen.padding_large)
         ),
-        modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium))
+        modifier = modifier.padding(
+            dimensionResource(id = R.dimen.padding_medium)
+        )
     ) {
         FormTambahSiswa(
             detailSiswa = uiStateSiswa.detailSiswa,
@@ -120,7 +123,6 @@ fun FormTambahSiswa(
             enabled = enabled,
             singleLine = true
         )
-
         OutlinedTextField(
             value = detailSiswa.alamat,
             onValueChange = { onValueChange(detailSiswa.copy(alamat = it)) },
@@ -129,7 +131,6 @@ fun FormTambahSiswa(
             enabled = enabled,
             singleLine = true
         )
-
         OutlinedTextField(
             value = detailSiswa.telpon,
             onValueChange = { onValueChange(detailSiswa.copy(telpon = it)) },
@@ -148,11 +149,10 @@ fun FormTambahSiswa(
                 )
             )
         }
-
-        HorizontalDivider(
-            thickness = dimensionResource(id = R.dimen.padding_small),
+        Divider(
+            thickness = dimensionResource(R.dimen.padding_small),
             modifier = Modifier.padding(
-                bottom = dimensionResource(id = R.dimen.padding_medium)
+                bottom = dimensionResource(R.dimen.padding_medium)
             )
         )
     }
