@@ -101,8 +101,8 @@ fun HomeBody(
         when (statusUiSiswa) {
             is StatusUiSiswa.Loading -> LoadingScreen()
             is StatusUiSiswa.Success -> DaftarSiswa(
-                dataSiswa = statusUiSiswa.listSiswa,
-                onSiswaClick = { siswa -> onSiswaClick(siswa.id.toInt())})
+                dataSiswa = statusUiSiswa.siswa,
+                onSiswaClick = { onSiswaClick(it.id.toInt())})
 
             is StatusUiSiswa.Error -> ErrorScreen(
                 retryAction,

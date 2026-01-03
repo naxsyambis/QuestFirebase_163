@@ -12,7 +12,7 @@ import java.io.IOException
 
 
 sealed interface StatusUiSiswa {
-    data class Success(val listSiswa: List<Siswa>) : StatusUiSiswa
+    data class Success(val siswa: List<Siswa>) : StatusUiSiswa
     object Error : StatusUiSiswa
     object Loading : StatusUiSiswa
 }
